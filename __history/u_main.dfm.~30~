@@ -1,0 +1,242 @@
+﻿object 메모장: T메모장
+  Left = 0
+  Top = 0
+  Caption = #47700#47784#51109
+  ClientHeight = 523
+  ClientWidth = 1026
+  Color = clBtnFace
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'Tahoma'
+  Font.Style = []
+  Menu = MainMenu1
+  OldCreateOrder = False
+  OnClose = FormClose
+  PixelsPerInch = 96
+  TextHeight = 13
+  object mmText: TMemo
+    Left = 0
+    Top = 0
+    Width = 1026
+    Height = 496
+    Align = alClient
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -21
+    Font.Name = 'Tahoma'
+    Font.Style = []
+    ParentFont = False
+    PopupMenu = PopupMenu
+    TabOrder = 0
+    OnChange = mmTextChange
+    ExplicitLeft = 8
+    ExplicitTop = -8
+    ExplicitHeight = 523
+  end
+  object StatusBar: TStatusBar
+    Left = 0
+    Top = 496
+    Width = 1026
+    Height = 27
+    Panels = <>
+    ParentShowHint = False
+    ShowHint = False
+    SimplePanel = True
+  end
+  object MainMenu1: TMainMenu
+    Left = 496
+    Top = 288
+    object miFile: TMenuItem
+      Caption = #54028#51068
+      ShortCut = 32838
+      object miFileNew: TMenuItem
+        Action = actFileNew
+      end
+      object miFileOpen: TMenuItem
+        Action = actFileOpen
+      end
+      object miFileSave: TMenuItem
+        Action = actFileSave
+      end
+      object miFileSaveAs: TMenuItem
+        Action = actFileSaveAs
+      end
+      object miFileN1: TMenuItem
+        Caption = '-'
+      end
+      object miFileQuit: TMenuItem
+        Action = actFileQuit
+      end
+    end
+    object miEdit: TMenuItem
+      Caption = #54200#51665
+      ShortCut = 32837
+      OnClick = miEditClick
+      object miEditCopy: TMenuItem
+        Action = actEditCopy
+      end
+      object miEditCut: TMenuItem
+        Action = actEditPaste
+      end
+      object miEditPaste: TMenuItem
+        Action = actEditCut
+      end
+      object miEditN1: TMenuItem
+        Caption = '-'
+      end
+      object miEditSelectAll: TMenuItem
+        Action = actEditSelectAll
+      end
+      object miEditSelectNone: TMenuItem
+        Action = actEditSelectNone
+      end
+      object miEditN2: TMenuItem
+        Caption = '-'
+      end
+      object miEditUndo: TMenuItem
+        Action = actEditUndo
+      end
+    end
+    object miFormat: TMenuItem
+      Caption = #49436#49885
+      ShortCut = 32847
+      object miFormatFont: TMenuItem
+        Action = actFormatFont
+      end
+    end
+    object miView: TMenuItem
+      Caption = #48372#44592
+      ShortCut = 32854
+      object miViewStatusBar: TMenuItem
+        Action = actViewStatusbar
+        AutoCheck = True
+      end
+    end
+    object miHelp: TMenuItem
+      Caption = #46020#50880#47568
+      object miHelpAbout: TMenuItem
+        Action = actHelpAbout
+      end
+    end
+  end
+  object FontDialog1: TFontDialog
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -11
+    Font.Name = 'Tahoma'
+    Font.Style = []
+    Left = 440
+    Top = 280
+  end
+  object ActionList1: TActionList
+    Left = 424
+    Top = 192
+    object actEditCopy: TAction
+      Category = 'Edit'
+      Caption = #48373#49324
+      ShortCut = 16451
+      OnExecute = actEditCopyExecute
+    end
+    object actFileNew: TAction
+      Category = 'File'
+      Caption = #49352' '#54028#51068
+      ShortCut = 16462
+      OnExecute = actFileNewExecute
+    end
+    object actEditCut: TAction
+      Category = 'Edit'
+      Caption = #51088#47476#44592
+      ShortCut = 16472
+      OnExecute = actEditCutExecute
+    end
+    object actFileOpen: TAction
+      Category = 'File'
+      Caption = #50676#44592
+      ShortCut = 16463
+      OnExecute = actFileOpenExecute
+    end
+    object actFileSave: TAction
+      Category = 'File'
+      Caption = #51200#51109
+      ShortCut = 16467
+      OnExecute = actFileSaveExecute
+    end
+    object actFileSaveAs: TAction
+      Category = 'File'
+      Caption = #45796#47480' '#51060#47492#51004#47196' '#51200#51109
+      OnExecute = actFileSaveAsExecute
+    end
+    object actFileQuit: TAction
+      Category = 'File'
+      Caption = #45149#45236#44592
+      ShortCut = 16465
+      OnExecute = actFileQuitExecute
+    end
+    object actEditPaste: TAction
+      Category = 'Edit'
+      Caption = #48537#50668#45347#44592
+      ShortCut = 16470
+      OnExecute = actEditPasteExecute
+    end
+    object actEditSelectAll: TAction
+      Category = 'Edit'
+      Caption = #47784#46160' '#49440#53469#54616#44592
+      ShortCut = 16449
+      OnExecute = actEditSelectAllExecute
+    end
+    object actEditSelectNone: TAction
+      Category = 'Edit'
+      Caption = #49440#53469' '#52712#49548#54616#44592
+      OnExecute = actEditSelectNoneExecute
+    end
+    object actEditUndo: TAction
+      Category = 'Edit'
+      Caption = #49892#54665' '#52712#49548
+      ShortCut = 16474
+      OnExecute = actEditUndoExecute
+    end
+    object actViewStatusbar: TAction
+      Category = 'View'
+      AutoCheck = True
+      Caption = #49345#53468' '#54364#49884#51460' '#48372#44592
+      Checked = True
+      OnExecute = actViewStatusbarExecute
+    end
+    object actFormatFont: TAction
+      Category = 'Format'
+      Caption = #44544#50472#52404
+      OnExecute = actFormatFontExecute
+    end
+    object actHelpAbout: TAction
+      Category = 'Help'
+      Caption = #47700#47784#51109#50640' '#45824#54644
+    end
+  end
+  object PopupMenu: TPopupMenu
+    OnPopup = PopupMenuPopup
+    Left = 552
+    Top = 280
+    object miCopy: TMenuItem
+      Action = actEditCopy
+    end
+    object miCut: TMenuItem
+      Action = actEditCut
+    end
+    object miPaste: TMenuItem
+      Action = actEditPaste
+    end
+  end
+  object OpenDialog: TOpenDialog
+    DefaultExt = 'txt'
+    Filter = #53581#49828#53944' '#54028#51068' (*.txt)|*.txt|'#47784#46304' '#54028#51068' (*.*)|*.*'
+    Left = 296
+    Top = 200
+  end
+  object SaveDialog1: TSaveDialog
+    DefaultExt = 'txt'
+    Filter = #53581#49828#53944' '#54028#51068' (*.txt)|*.txt|'#47784#46304' '#54028#51068' (*.*)|*.*'
+    Left = 320
+    Top = 288
+  end
+end

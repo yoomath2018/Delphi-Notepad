@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>2020/10/31 13:59:21.000.288,=C:\Users\MAx\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2020/10/31 14:00:30.000.462,=C:\Users\MAx\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2020/11/05 23:05:23.000.391,=C:\Users\MAx\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2020/11/05 23:08:17.000.936,C:\Users\MAx\Documents\Embarcadero\Studio\Projects\Unit1.pas=C:\Users\MAx\Documents\Embarcadero\Studio\Projects\notepad\u_main.pas</Transaction>
+    <Transaction>2020/11/05 23:08:17.000.936,C:\Users\MAx\Documents\Embarcadero\Studio\Projects\Unit1.dfm=C:\Users\MAx\Documents\Embarcadero\Studio\Projects\notepad\u_main.dfm</Transaction>
+    <Transaction>2020/11/05 23:08:25.000.199,C:\Users\MAx\Documents\Embarcadero\Studio\Projects\Project1.dproj=C:\Users\MAx\Documents\Embarcadero\Studio\Projects\notepad\Notepad.dproj</Transaction>
+    <Transaction>2020/11/06 22:55:46.000.169,=C:\Users\MAx\Documents\Embarcadero\Studio\Projects\notepad\Unit1.pas</Transaction>
+    <Transaction>2020/11/06 22:55:52.000.110,C:\Users\MAx\Documents\Embarcadero\Studio\Projects\notepad\u_help.pas=C:\Users\MAx\Documents\Embarcadero\Studio\Projects\notepad\Unit1.pas</Transaction>
+    <Transaction>2020/11/06 22:55:52.000.110,C:\Users\MAx\Documents\Embarcadero\Studio\Projects\notepad\u_help.dfm=C:\Users\MAx\Documents\Embarcadero\Studio\Projects\notepad\Unit1.dfm</Transaction>
+  </Transactions>
+</BorlandProject>
