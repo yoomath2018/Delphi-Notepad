@@ -5,7 +5,7 @@ interface
 uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.ToolWin, Vcl.ComCtrls, Vcl.Menus,
-  Vcl.StdCtrls, System.Actions, Vcl.ActnList, Vcl.Clipbrd,System.UITypes, u_help;
+  Vcl.StdCtrls, System.Actions, Vcl.ActnList, Vcl.Clipbrd,System.UITypes, u_help, IniFiles;
 
 type
   T메모장 = class(TForm)
@@ -78,9 +78,11 @@ type
     procedure actFormatFontExecute(Sender: TObject);
     procedure actHelpAboutExecute(Sender: TObject);
     procedure actFormatColorExecute(Sender: TObject);
+    procedure FormCreate(Sender: TObject);
   private
     FileName:String;
     Changed:boolean;
+    ini:TIniFile;
   public
     { Public declarations }
   end;
@@ -136,8 +138,17 @@ procedure T메모장.actFileOpenExecute(Sender: TObject);
 begin
   if OpenDialog.Execute then
   begin
-    FileName := OpenDialog.FileName;
-    mmText.Lines.LoadFromFile(FileName);
+    try
+      FileName := OpenDialog.FileName;
+      mmText.Lines.LoadFromFile(FileName);
+      Changed := false;
+      메모장.Caption := '메모장 - '+FileName;
+    except
+      on e : exception do
+      begin
+        MessageDlg('파일을 여는데 다음과 같은 에러 발생 : ' + E.Message,mtError, [mbOK],0);
+      end;
+    end;
   end;
 end;
 
@@ -202,6 +213,15 @@ procedure T메모장.FormClose(Sender: TObject; var Action: TCloseAction);
 var
   Selected : integer;
 begin
+  ini := TIniFile.Create(GetCurrentDir + '\config.ini');
+  try
+    ini.WriteString('Font', 'Name', mmText.Font.Name);
+    ini.WriteInteger('Font', 'Charset', mmText.Font.Charset);
+    ini.WriteInteger('Font', 'Color', mmText.Font.Color);
+    ini.WriteInteger('Font', 'Size', mmText.Font.Size);
+  finally
+    ini.Free;
+  end;
   Selected := 0;
   if Changed = true then
   begin
@@ -224,6 +244,19 @@ begin
         exit;
       end;
     end;
+  end;
+end;
+
+procedure T메모장.FormCreate(Sender: TObject);
+begin
+  ini := TIniFile.Create(GetCurrentDir + '\config.ini');
+  try
+    mmText.Font.Name := ini.ReadString('Font', 'Name', mmText.Font.Name);
+    mmText.Font.Charset := ini.ReadInteger('Font', 'Charset', mmText.Font.Charset);
+    mmText.Font.Color := ini.ReadInteger('Font', 'Color', mmText.Font.Color);
+    mmText.Font.Size := ini.ReadInteger('Font', 'Size', mmText.Font.Size);
+  finally
+    ini.Free;
   end;
 end;
 
